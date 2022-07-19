@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "live-server --open=./SpecRunner.html --port=8081",
-    "start": "live-server",
+    "start": "live-server & run build -w",
     "build": "webpack -d --watch"
   },
   "dependencies": {
