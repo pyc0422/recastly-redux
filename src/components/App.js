@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getYouTubeVideos('react tutorials');
+    this.props.SearchContainer('react tutorials');
   }
 
   handleVideoListEntryTitleClick(video) {
