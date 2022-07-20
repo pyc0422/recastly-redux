@@ -8,3 +8,5 @@ const initialState = {
   videoList: [],
   currentVideo: {},
 };
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+export default store;
