@@ -7,28 +7,31 @@ import VideoListContainer from '../containers/VideoListContainer.js';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
-//import SearchContainer from '../containers/SearchContainer.js';
+
 
 class App extends React.Component {
 
   componentDidMount() {
-    console.log('inside componentDidMount: ');
-
     this.props.handleSearch('react tutoral');
   }
 
-  handleVideoListEntryTitleClick(video) {
-    this.props.handleVideoListEntryTitleClick();
-  }
 
-  getYouTubeVideos(query) {
-    this.props.handleSearch(query);
-  }
+  // getYouTubeVideos(query) {
+  //   // var debounceSearch = _debounce(this.props.handleSearch(query), 5000);
+  //   // var d = _debounce(function(query) {
+  //   //   this.props.handleSearch(query);
+  //   // }, 5000);
+  //   // d();
+  //   // _.debounce(function(query) {
+  //   //   this.props.handleSearch(query);
+  //   // }, 5000);
+  //   // debounceSearch();
+  //   this.props.handleSearch(query);
+  // }
 
   //TODO: swap out the React components below for the container components
   //  you wrote in the 'containers' directory.
   render() {
-
     return (
       <div>
         <nav className="navbar">

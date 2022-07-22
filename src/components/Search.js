@@ -1,20 +1,21 @@
 import React from 'react';
-
+import _debounce from 'lodash/debounce';
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: ''
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     value: ''
+  //   };
+  // }
 
   handleInputChange(e) {
-    this.props.handleSearchInputChange(e.target.value);
-    this.setState({
-      value: e.target.value
-    });
+    var value = e.target.value;
+    var debounceInputChange = _debounce(() => {
+      this.props.handleSearchInputChange(value);
+    }, 500);
+    //this.props.handleSearchInputChange(e.target.value);
+    debounceInputChange();
   }
 
   render() {
@@ -23,7 +24,7 @@ class Search extends React.Component {
         <input
           className="form-control"
           type="text"
-          value={this.props.value}
+          //value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
         <button className="btn hidden-sm-down">
