@@ -10,17 +10,6 @@ import handleSearchChange from '../actions/search.js';
 //import SearchContainer from '../containers/SearchContainer.js';
 
 class App extends React.Component {
-  // constructor(props) {
-  //   console.log(props);
-  //   super(props);
-
-  //   // this.state = {
-  //   //   videos: [],
-  //   //   currentVideo: null
-  //   // };
-
-  //   //this.getYouTubeVideos = this.getYouTubeVideos.bind(this);
-  // }
 
   componentDidMount() {
     console.log('inside componentDidMount: ');
@@ -29,22 +18,10 @@ class App extends React.Component {
   }
 
   handleVideoListEntryTitleClick(video) {
-    //this.setState({currentVideo: video});
     this.props.handleVideoListEntryTitleClick();
   }
 
   getYouTubeVideos(query) {
-    // var options = {
-    //   key: this.props.API_KEY,
-    //   query: query
-    // };
-
-    // this.props.searchYouTube(options, (videos) =>
-    //   this.setState({
-    //     videos: videos,
-    //     currentVideo: videos[0]
-    //   })
-    // );
     this.props.handleSearch(query);
   }
 
@@ -56,20 +33,14 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
-            {/* <Search getYouTubeVideos={this.getYouTubeVideos.bind(this)}/> */}
             <SearchContainer/>
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            {/* <VideoPlayer video={this.props.currentVideo}/> */}
             <VideoPlayerContainer/>
           </div>
           <div className="col-md-5">
-            {/* <VideoList
-              handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
-              videos={this.props.videos}
-            /> */}
             <VideoListContainer/>
           </div>
         </div>
