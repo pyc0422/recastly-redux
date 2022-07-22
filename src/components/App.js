@@ -5,6 +5,9 @@ import Search from './Search.js';
 import SearchContainer from '../containers/SearchContainer.js';
 import VideoListContainer from '../containers/VideoListContainer.js';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
+import { connect } from 'react-redux';
+import handleSearchChange from '../actions/search.js';
+//import SearchContainer from '../containers/SearchContainer.js';
 
 class App extends React.Component {
   // constructor(props) {
@@ -20,9 +23,9 @@ class App extends React.Component {
   // }
 
   componentDidMount() {
-    console.log('inside componentDidMount: ', this.props);
-    SearchContainer('react tutorials');
-    //this.props.handleSearchInputChange('react tutorials');
+    console.log('inside componentDidMount: ');
+
+    this.props.handleSearch('react tutoral');
   }
 
   handleVideoListEntryTitleClick(video) {
@@ -42,7 +45,7 @@ class App extends React.Component {
     //     currentVideo: videos[0]
     //   })
     // );
-    this.props.handleSearchInputChange(query);
+    this.props.handleSearch(query);
   }
 
   //TODO: swap out the React components below for the container components
@@ -54,7 +57,6 @@ class App extends React.Component {
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
             {/* <Search getYouTubeVideos={this.getYouTubeVideos.bind(this)}/> */}
-            {console.log('searchcontainer')}
             <SearchContainer/>
           </div>
         </nav>
@@ -76,4 +78,12 @@ class App extends React.Component {
   }
 }
 
-export default App;
+//export default App;
+const mapDispatchProps = (dispatch) => {
+  return {
+    handleSearch: (q) => dispatch(handleSearchChange(q))
+  };
+};
+
+export default connect(null, mapDispatchProps)(App);
+

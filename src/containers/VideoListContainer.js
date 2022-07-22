@@ -4,7 +4,6 @@ import changeVideo from '../actions/currentVideo.js';
 
 
 const mapStateToProps = (state) => {
-  console.log('state in ')
   return {
     videos: state.videoList
   };
@@ -13,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
 
   return {
-    handleVideoListEntryTitleClick: (videos) => dispatch(changeVideo(videos[0]))
+    handleVideoListEntryTitleClick: (videos) => dispatch(changeVideo(videos))
   };
 };
 
